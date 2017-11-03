@@ -29,7 +29,7 @@ $(document).ready(function() {
   $("#addTopping").click(function() {
     $("#newTopping").append('<div class="newTopping">' +
       '<p>Select Meat Topping</p>' +
-      '<select class="form-control meatTopping">' +
+      '<select class="form-control meatTopping">' + '<option value="none">Select one:</option>' +
         '<option value="pepperoni">Pepperoni</option>' +
         '<option value="sausage">Sausage</option>' +
         '<option value="ham">Ham</option>' +
@@ -38,8 +38,8 @@ $(document).ready(function() {
         '<option value="beef">Beef</option>' +
         '<option value="pork">Pork</option>' +
         '</select>' + '<p>Select Veggie Topping:</p>' +
-        '<select class="form-control veggieTopping">' +
-          '<option value="onions">Onions</option>' +
+        '<select class="form-control veggieTopping">' + '<option value="none">Select one:</option>' +
+        '<option value="onions">Onions</option>' +
           '<option value="greenPeppers">Green Peppers</option>' +
           '<option value="mushrooms">Mushrooms</option>' +
           '<option value="bananaPeppers">Banana Peppers</option>' +
@@ -54,7 +54,7 @@ $(document).ready(function() {
     var crust = $("#crust").val();
     var sauce = $("#sauce").val();
     var crustFlavor = $("#crustFlavor").val();
-  
+
     var newPizza = new Pizza(crust, sauce, crustFlavor);
     var addTopping = new Topping();
     newPizza.toppings.push(addTopping);
@@ -65,8 +65,12 @@ $(document).ready(function() {
       //console.log(meatTopping);
       var veggieTopping = $(this).find(".veggieTopping").val();
       //console.log(veggieTopping);
-      addTopping.meats.push(meatTopping);
+      if (meatTopping !== "none") {
+        addTopping.meats.push(meatTopping);
+      }
+      if (veggieTopping !== "none") {
       addTopping.veggies.push(veggieTopping);
+      }
     })
     console.log(newPizza.crustFlavor);
     $("ul#pizza").append("<li><span class='pizza'>" + newPizza.wholePizza() + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
