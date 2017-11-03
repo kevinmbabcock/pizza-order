@@ -1,8 +1,10 @@
-function Pizza (crust, sauce, crustFlavor) {
+function Pizza (size, crust, sauce, crustFlavor) {
+  this.size = size
   this.crust = crust;
   this.sauce = sauce;
   this.crustFlavor = crustFlavor;
   this.toppings = [];
+  this.price = 20;
 }
 
 function Topping () {
@@ -11,7 +13,7 @@ function Topping () {
 }
 
 Pizza.prototype.wholePizza = function() {
-  return this.crust + ", " + this.sauce + ", " + this.crustFlavor;
+  return this.size + ", " + this.crust + ", " + this.sauce + ", " + this.crustFlavor;
 }
 
 Pizza.prototype.numberOfMeats = function() {
@@ -23,21 +25,22 @@ Pizza.prototype.numberOfVeggies = function() {
 }
 
 Topping.prototype.meatString = function() {
-  var toppings = "";
-  for (index = 0; index < this.meats.length; index++) {
-    toppings += this.meats[index] + ", ";
+  var toppings = this.meats[0];
+  for (index = 1; index < this.meats.length; index++) {
+    toppings += ", " + this.meats[index];
   }
   return toppings;
 }
 
 Topping.prototype.veggieString = function() {
-  var toppings = "";
-  for (index = 0; index < this.veggies.length; index++) {
-    toppings += this.veggies[index] + ", ";
+  var toppings = this.veggies[0];
+  for (index = 1; index < this.veggies.length; index++) {
+    toppings += ", " + this.veggies[index];
   }
   return toppings;
 }
 
+var calculatePrice
 
 
 $(document).ready(function() {
@@ -45,7 +48,7 @@ $(document).ready(function() {
   $("#addTopping").click(function() {
     $("#newTopping").append('<div class="newTopping">' +
       '<p>Select Meat Topping</p>' +
-      '<select class="form-control meatTopping">' +    '<option>Select one:</option>' +
+      '<select class="form-control meatTopping">' +    '<option value="none">Select one:</option>' +
         '<option>Pepperoni</option>' +
         '<option>Sausage</option>' +
         '<option>Ham</option>' +
@@ -67,11 +70,12 @@ $(document).ready(function() {
   $("form#newPizza").submit(function(event) {
     event.preventDefault();
 
+    var size = $("#size").val();
     var crust = $("#crust").val();
     var sauce = $("#sauce").val();
     var crustFlavor = $("#crustFlavor").val();
 
-    var newPizza = new Pizza(crust, sauce, crustFlavor);
+    var newPizza = new Pizza(size, crust, sauce, crustFlavor);
     var addTopping = new Topping();
     newPizza.toppings.push(addTopping);
 
@@ -90,10 +94,11 @@ $(document).ready(function() {
     })
 
 
-    $("ul#pizza").append("<li><span class='pizza'>" + newPizza.wholePizza() + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
+    $("ul#pizza").append("<li><span class='pizza'>" + newPizza.size + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
 
     $(".pizza").last().click(function() {
       $("#showPizza").show();
+      $(".size").text(newPizza.size);
       $(".crust").text(newPizza.crust);
       $(".sauce").text(newPizza.sauce);
       $(".flavor").text(newPizza.crustFlavor);

@@ -16,6 +16,15 @@
           <h2>Add a Pizza:</h2>
           <form id="newPizza">
             <div class="form-group">
+              <p>Select Size</p>
+              <select class="form-control" id="size">
+                <option>Medium</option>
+                <option>Large</option>
+                <option>X-Large</option>
+                <option>Family</option>
+              </select>
+            </div>
+            <div class="form-group">
               <p>Select Crust</p>
               <select class="form-control" id="crust">
                 <option>Pan Pizza</option>
@@ -81,6 +90,7 @@
         <div class="col-md-6">
           <div id="showPizza">
             <h2>Your Pizza:</h2>
+            <p>Size: <span class="size"></span></p>
             <p>Crust: <span class="crust"></span></p>
             <p>Sauce: <span class="sauce"></span></p>
             <p>Crust Flavor: <span class="flavor"</span></p>
