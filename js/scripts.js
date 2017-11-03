@@ -22,6 +22,22 @@ Pizza.prototype.numberOfVeggies = function() {
   return "Veggies: " + this.toppings[0].veggies.length;
 }
 
+Topping.prototype.meatString = function() {
+  var toppings = "";
+  for (index = 0; index < this.meats.length; index++) {
+    toppings += this.meats[index] + ", ";
+  }
+  return toppings;
+}
+
+Topping.prototype.veggieString = function() {
+  var toppings = "";
+  for (index = 0; index < this.veggies.length; index++) {
+    toppings += this.veggies[index] + ", ";
+  }
+  return toppings;
+}
+
 
 
 $(document).ready(function() {
@@ -29,21 +45,21 @@ $(document).ready(function() {
   $("#addTopping").click(function() {
     $("#newTopping").append('<div class="newTopping">' +
       '<p>Select Meat Topping</p>' +
-      '<select class="form-control meatTopping">' + '<option value="none">Select one:</option>' +
-        '<option value="pepperoni">Pepperoni</option>' +
-        '<option value="sausage">Sausage</option>' +
-        '<option value="ham">Ham</option>' +
-        '<option value="bacon">Bacon</option>' +
-        '<option value="chicken">Chicken</option>' +
-        '<option value="beef">Beef</option>' +
-        '<option value="pork">Pork</option>' +
+      '<select class="form-control meatTopping">' +    '<option>Select one:</option>' +
+        '<option>Pepperoni</option>' +
+        '<option>Sausage</option>' +
+        '<option>Ham</option>' +
+        '<option>Bacon</option>' +
+        '<option>Chicken</option>' +
+        '<option>Beef</option>' +
+        '<option>Pork</option>' +
         '</select>' + '<p>Select Veggie Topping:</p>' +
         '<select class="form-control veggieTopping">' + '<option value="none">Select one:</option>' +
-        '<option value="onions">Onions</option>' +
-          '<option value="greenPeppers">Green Peppers</option>' +
-          '<option value="mushrooms">Mushrooms</option>' +
-          '<option value="bananaPeppers">Banana Peppers</option>' +
-          '<option value="jalepenos">Jalepenos</option>' +
+          '<option>Onions</option>' +
+          '<option>Green Peppers</option>' +
+          '<option>Mushrooms</option>' +
+          '<option>Banana Peppers</option>' +
+          '<option>Jalepenos</option>' +
         '</select>' +
       '</div>');
   })
@@ -72,7 +88,17 @@ $(document).ready(function() {
       addTopping.veggies.push(veggieTopping);
       }
     })
-    console.log(newPizza.crustFlavor);
+
+
     $("ul#pizza").append("<li><span class='pizza'>" + newPizza.wholePizza() + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
+
+    $(".pizza").last().click(function() {
+      $("#showPizza").show();
+      $(".crust").text(newPizza.crust);
+      $(".sauce").text(newPizza.sauce);
+      $(".flavor").text(newPizza.crustFlavor);
+      $(".meat").text(newPizza.toppings[0].meatString());
+      $(".veggie").text(newPizza.toppings[0].veggieString());
+    })
   });
 });
