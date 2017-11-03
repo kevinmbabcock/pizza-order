@@ -1,18 +1,61 @@
-#showPizza, .address, .addressShow {
+#showPizza, .address, .orderInfo, .pizzas {
   display: none;
 }
 
-.pizzas {
+.deliveryInfo {
   float: left;
-  margin-right: 200px;
+  margin-right: 50px;
+  font-size: 15px;
 }
 
 .address {
   margin-top: 12px;
 }
 
+.address, .pizzaForm {
+  border: 2px solid blue;
+  background-color: #b3c6ff;
+  padding: 20px;
+}
+
 .orderInfo {
   margin-top: 20px;
   border: 2px solid red;
   background-color: #ff8080;
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+#showPizza {
+  font-size: 15px;
+  border: 2px solid green;
+  background-color: #70db70;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.title {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #ff8080;
+}
+
+.pizzas {
+  margin-top: 12px;
+  border: 2px solid green;
+  background-color: #70db70;
+  padding: 20px;
+}
+
+.clickable {
+  text-decoration: underline;
+  color: blue;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }

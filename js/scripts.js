@@ -96,9 +96,12 @@ $(document).ready(function() {
       '</div>');
   })
 
+  var allPizzas = [];
   $("form#newPizza").submit(function(event) {
     event.preventDefault();
 
+    $(".orderInfo").show();
+    $(".pizzas").show();
     $(".toCustomer").hide();
     var toCustomer = $("input:radio[name=toCustomer]:checked").val();
     var size = $("#size").val();
@@ -120,6 +123,7 @@ $(document).ready(function() {
     var newPizza = new Pizza(size, crust, sauce, crustFlavor);
     var addTopping = new Topping();
     newPizza.toppings.push(addTopping);
+    allPizzas.push(newPizza);
 
     $(".newTopping").each(function() {
       var meatTopping = $(this).find(".meatTopping").val();
@@ -132,9 +136,15 @@ $(document).ready(function() {
       addTopping.veggies.push(veggieTopping);
       }
     })
-    var newPizzaPrice = newPizza.calculatePrice();
 
-    $("ul#pizza").append("<li><span class='pizza'>" + newPizza.size + " $" + newPizzaPrice + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
+    var newPizzaPrice = newPizza.calculatePrice();
+    $("ul#pizza").append("<li><span class='clickable'>Pizza: </span><span class='pizza'>" + newPizza.size + " $" + newPizzaPrice + "<br />      " + newPizza.numberOfMeats() + "<br />     " + newPizza.numberOfVeggies() +  "</span></li>");
+
+    var totalPrice = 0;
+    for (index = 0; index < allPizzas.length; index++) {
+      totalPrice += allPizzas[index].price;
+    }
+    $("#totalCost").text("$" + totalPrice);
 
     $("#address").submit(function(event) {
       event.preventDefault();
@@ -150,7 +160,7 @@ $(document).ready(function() {
       $(".address").hide();
     })
 
-    $(".pizza").last().click(function() {
+    $(".clickable").last().click(function() {
       $("#showPizza").show();
       $(".size").text(newPizza.size);
       $(".crust").text(newPizza.crust);

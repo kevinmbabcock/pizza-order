@@ -10,101 +10,103 @@
   </head>
   <body>
     <div class="container">
-      <h1>Order Your Pizza!</h1>
+      <div class="jumbotron">
+        <h1>Order Your Pizza!</h1>
+      </div>
       <div class="row">
         <div class="col-md-6">
-          <h2>Add a Pizza:</h2>
-          <form id="newPizza">
-            <div class="form-group toCustomer">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="toCustomer" value="pickUp" checked>
-                  Pick Up
-                </label>
+          <div class="pizzaForm">
+            <h2 class="title">Add a Pizza:</h2>
+            <form id="newPizza">
+              <div class="form-group toCustomer">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="toCustomer" value="pickUp" checked>
+                    Pick Up
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="toCustomer" value="delivery">
+                    Delivery
+                  </label>
+                </div>
               </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="toCustomer" value="delivery">
-                  Delivery
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <p>Select Size</p>
-              <select class="form-control" id="size">
-                <option>Medium</option>
-                <option value="Large">Large ($2 extra)</option>
-                <option value="X-Large">X-Large ($4 extra)</option>
-                <option value="Family">Family ($8 extra)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <p>Select Crust</p>
-              <select class="form-control" id="crust">
-                <option>Hand Tossed</option>
-                <option value="Pan Pizza">Pan Pizza ($2 extra)</option>
-                <option value="Stuffed Crust">Stuffed Crust ($2 extra)</option>
-                <option>Thin N Crispy</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <p>Select Sauce</p>
-              <select class="form-control" id="sauce">
-                <option>Marinara</option>
-                <option>Barbeque</option>
-                <option>Buffalo</option>
-                <option>White Sauce</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <p>Crust Flavor</p>
-              <select class="form-control" id="crustFlavor">
-                <option>No Crust Flavor</option>
-                <option value="Garlic Butter">Garlic Butter ($2 extra)</option>
-                <option value ="Parmesan">Parmesan ($2 extra)</option>
-                <option value="Cheddar">Cheddar ($2 extra)</option>
-              </select>
-            </div>
-
-            <div id="newTopping">
-              <div class="newTopping">
-                <p>Select Meat Topping (First two free, $1 each additional):</p>
-                <select class="form-control meatTopping">
-                  <option value="none">Select one:</option>
-                  <option>Pepperoni</option>
-                  <option>Sausage</option>
-                  <option>Ham</option>
-                  <option>Bacon</option>
-                  <option>Chicken</option>
-                  <option>Beef</option>
-                  <option>Pork</option>
-                </select>
-                <p>Select Veggie Topping (First two free, $0.5 each additional):</p>
-                <select class="form-control veggieTopping">
-                  <option value="none">Select one:</option>
-                  <option>Onions</option>
-                  <option>Green Peppers</option>
-                  <option>Mushrooms</option>
-                  <option>Banana Peppers</option>
-                  <option>Jalepenos</option>
+              <div class="form-group">
+                <p>Select Size</p>
+                <select class="form-control" id="size">
+                  <option>Medium</option>
+                  <option value="Large">Large ($2 extra)</option>
+                  <option value="X-Large">X-Large ($4 extra)</option>
+                  <option value="Family">Family ($8 extra)</option>
                 </select>
               </div>
-            </div>
+              <div class="form-group">
+                <p>Select Crust</p>
+                <select class="form-control" id="crust">
+                  <option>Hand Tossed</option>
+                  <option value="Pan Pizza">Pan Pizza ($2 extra)</option>
+                  <option value="Stuffed Crust">Stuffed Crust ($2 extra)</option>
+                  <option>Thin N Crispy</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <p>Select Sauce</p>
+                <select class="form-control" id="sauce">
+                  <option>Marinara</option>
+                  <option>Barbeque</option>
+                  <option>Buffalo</option>
+                  <option>White Sauce</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <p>Crust Flavor</p>
+                <select class="form-control" id="crustFlavor">
+                  <option>No Crust Flavor</option>
+                  <option value="Garlic Butter">Garlic Butter ($2 extra)</option>
+                  <option value ="Parmesan">Parmesan ($2 extra)</option>
+                  <option value="Cheddar">Cheddar ($2 extra)</option>
+                </select>
+              </div>
 
-            <span class="btn btn-primary" id="addTopping">More Toppings</span>
-            <button type="submit" class="btn btn-success">Add Pizza</button>
-          </form>
+              <div id="newTopping">
+                <div class="newTopping">
+                  <p>Select Meat Topping (First two free, $1 each additional):</p>
+                  <select class="form-control meatTopping">
+                    <option value="none">Select one:</option>
+                    <option>Pepperoni</option>
+                    <option>Sausage</option>
+                    <option>Ham</option>
+                    <option>Bacon</option>
+                    <option>Chicken</option>
+                    <option>Beef</option>
+                    <option>Pork</option>
+                  </select>
+                  <p>Select Veggie Topping (First two free, $0.5 each additional):</p>
+                  <select class="form-control veggieTopping">
+                    <option value="none">Select one:</option>
+                    <option>Onions</option>
+                    <option>Green Peppers</option>
+                    <option>Mushrooms</option>
+                    <option>Banana Peppers</option>
+                    <option>Jalepenos</option>
+                  </select>
+                </div>
+              </div>
+
+              <span class="btn btn-primary" id="addTopping">More Toppings</span>
+              <button type="submit" class="btn btn-success">Add Pizza</button>
+            </form>
+          </div>
           <div class="orderInfo">
-            <div class="pizzas">
-              <h2>Pizzas:</h2>
-              <ul id="pizza">
-
-              </ul>
-            </div>
             <div class="addressShow">
-              <h2>Delivery To:</h2>
-              <ul id="showAddress">
-              </ul>
+              <div class="deliveryInfo">
+                <h3>Delivery To:</h3>
+                <ul id="showAddress">
+                </ul>
+              </div>
+              <h3>Total Cost:</h3>
+              <p><span id="totalCost"></span></p>
             </div>
           </div>
         </div>
@@ -140,21 +142,27 @@
                 <button class="btn" type="submit">Submit</button>
             </form>
           </div>
-        </div>
-      </div>
-      <div id="showPizza">
-        <div class="row">
-          <h2>Your Pizza:</h2>
-          <div class="col-md-3">
-            <p>Size: <span class="size"></span></p>
-            <p>Crust: <span class="crust"></span></p>
-            <p>Sauce: <span class="sauce"></span></p>
-            <p>Crust Flavor: <span class="flavor"</span></p>
+          <div class="pizzas">
+            <h2>Pizzas:</h2>
+            <ul id="pizza">
+
+            </ul>
           </div>
-          <div class="col-md-3">
-            <p>Meat Toppings: <span class="meat"></span></p>
-            <p>Veggie Toppings: <span class="veggie"></span></p>
-            <p>Total Price: <span class="price"></span></p>
+          <div id="showPizza">
+            <div class="row">
+              <p><strong>Your Pizza:</strong></p>
+              <div class="col-md-3">
+                <p><strong>Size: </strong><span class="size"></span></p>
+                <p><strong>Crust: </strong><span class="crust"></span></p>
+                <p><strong>Sauce: </strong><span class="sauce"></span></p>
+                <p><strong>Crust Flavor: </strong><span class="flavor"</span></p>
+              </div>
+              <div class="col-md-3">
+                <p><strong>Meat Toppings: </strong><span class="meat"></span></p>
+                <p><strong>Veggie Toppings: </strong><span class="veggie"></span></p>
+                <p><strong>Total Price: </strong><span class="price"></span></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
