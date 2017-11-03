@@ -23,7 +23,7 @@
   border: 2px solid red;
   background-color: #ff8080;
   padding: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 #showPizza {
@@ -58,4 +58,9 @@
 
 .clickable:hover {
   cursor: pointer;
+}
+
+.newTopping p {
+  border-top: 2px solid blue;
+  margin-top: 20px;
 }
