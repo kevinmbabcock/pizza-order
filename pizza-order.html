@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pizza Order</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Order Your Pizza!</h1>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <h2>Add a Pizza:</h2>
+          <form id="newPizza">
+            <div class="form-group">
+              <p>Select Crust</p>
+              <select class="form-control" id="crust">
+                <option value="pan">Pan Pizza</option>
+                <option value="handTossed">Hand Tossed</option>
+                <option value="stuffed">Stuffed Crust</option>
+                <option value="thin">Thin N Crispy</option>
+              </select>
+              <p>Select Sauce</p>
+              <select class="form-control" id="sauce">
+                <option value="marinara">Marinara</option>
+                <option value="bbq">Barbeque</option>
+                <option value="buffalo">Buffalo</option>
+                <option value="white">White Sauce</option>
+              </select>
+              <p>Crust Flavor</p
+              <select class="form-control" id="crustFlavor">
+                <option value="garlic">Garlic Butter</option>
+                <option value="parmesan">Parmesan</option>
+                <option value="cheddar">Cheddar</option>
+                <option value="none">No Crust Flavor</option>
+              </select>
+            </div>
+
+            <div id="newTopping">
+              <div class="newTopping">
+                <p>Select Topping</p>
+                <select class="form-control" id="topping">
+                  <option value="pepperoni">Pepperoni</option>
+                  <option value="sausage">Sausage</option>
+                  <option value="ham">Ham</option>
+                  <option value="bacon">Bacon</option>
+                  <option value="chicken">Chicken</option>
+                  <option value="beef">Beef</option>
+                  <option value="pork">Pork</option>
+                  <option value="onions">Onions</option>
+                  <option value="greenPeppers">Green Peppers</option>
+                  <option value="mushrooms">Mushrooms</option>
+                  <option value="bananaPeppers">Banana Peppers</option>
+                  <option value="jalepenos">Jalepenos</option>
+                </select>
+              </div>
+            </div>
+
+            <span class="btn btn-primary" id="addTopping">Another Topping</span>
+            <button type="submit" class="btn">Add</button>
+          </form>
+
+          <h2>Pizzas:</h2>
+          <ul id="pizza">
+
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <div id="showPizza">
+            <h2></h2>
+            <p>Crust: <span class="crust"></span></p>
+            <p>Sauce: <span class="sauce"></span></p>
+            <p>Crust Flavor: <span class="flavor"</span></p>
+            <p>Toppings:</p>
+            <ul id="toppings">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
