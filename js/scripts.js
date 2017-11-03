@@ -10,6 +10,19 @@ function Topping () {
   this.veggies = [];
 }
 
+Pizza.prototype.wholePizza = function() {
+  return this.crust + ", " + this.sauce + ", " + this.crustFlavor;
+}
+
+Pizza.prototype.numberOfMeats = function() {
+  return "Meats: " + this.toppings[0].meats.length;
+}
+
+Pizza.prototype.numberOfVeggies = function() {
+  return "Veggies: " + this.toppings[0].veggies.length;
+}
+
+
 
 $(document).ready(function() {
 
@@ -40,13 +53,13 @@ $(document).ready(function() {
 
     var crust = $("#crust").val();
     var sauce = $("#sauce").val();
-    var crustFlavor = $("crustFlavor");
-
+    var crustFlavor = $("#crustFlavor").val();
+  
     var newPizza = new Pizza(crust, sauce, crustFlavor);
     var addTopping = new Topping();
     newPizza.toppings.push(addTopping);
 
-    //console.log(newPizza.toppings);
+
     $(".newTopping").each(function() {
       var meatTopping = $(this).find(".meatTopping").val();
       //console.log(meatTopping);
@@ -55,7 +68,7 @@ $(document).ready(function() {
       addTopping.meats.push(meatTopping);
       addTopping.veggies.push(veggieTopping);
     })
-    console.log(addTopping.meats);
-    console.log(addTopping.veggies);
+    console.log(newPizza.crustFlavor);
+    $("ul#pizza").append("<li><span class='pizza'>" + newPizza.wholePizza() + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
   });
 });
