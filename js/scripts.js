@@ -5,13 +5,18 @@ function Pizza (crust, sauce, crustFlavor) {
   this.toppings = [];
 }
 
+function Topping () {
+  this.meats = [];
+  this.veggies = [];
+}
+
 
 $(document).ready(function() {
 
   $("#addTopping").click(function() {
     $("#newTopping").append('<div class="newTopping">' +
-      '<p>Select Topping</p>' +
-      '<select class="form-control topping">' +
+      '<p>Select Meat Topping</p>' +
+      '<select class="form-control meatTopping">' +
         '<option value="pepperoni">Pepperoni</option>' +
         '<option value="sausage">Sausage</option>' +
         '<option value="ham">Ham</option>' +
@@ -19,13 +24,15 @@ $(document).ready(function() {
         '<option value="chicken">Chicken</option>' +
         '<option value="beef">Beef</option>' +
         '<option value="pork">Pork</option>' +
-        '<option value="onions">Onions</option>' +
-        '<option value="greenPeppers">Green Peppers</option>' +
-        '<option value="mushrooms">Mushrooms</option>' +
-        '<option value="bananaPeppers">Banana Peppers</option>' +
-        '<option value="jalepenos">Jalepenos</option>' +
-      '</select>' +
-    '</div>');
+        '</select>' + '<p>Select Veggie Topping:</p>' +
+        '<select class="form-control veggieTopping">' +
+          '<option value="onions">Onions</option>' +
+          '<option value="greenPeppers">Green Peppers</option>' +
+          '<option value="mushrooms">Mushrooms</option>' +
+          '<option value="bananaPeppers">Banana Peppers</option>' +
+          '<option value="jalepenos">Jalepenos</option>' +
+        '</select>' +
+      '</div>');
   })
 
   $("form#newPizza").submit(function(event) {
@@ -36,12 +43,19 @@ $(document).ready(function() {
     var crustFlavor = $("crustFlavor");
 
     var newPizza = new Pizza(crust, sauce, crustFlavor);
+    var addTopping = new Topping();
+    newPizza.toppings.push(addTopping);
 
     //console.log(newPizza.toppings);
     $(".newTopping").each(function() {
-      var topping = $(".topping").val();
-      newPizza.toppings.push(topping);
+      var meatTopping = $(this).find(".meatTopping").val();
+      //console.log(meatTopping);
+      var veggieTopping = $(this).find(".veggieTopping").val();
+      //console.log(veggieTopping);
+      addTopping.meats.push(meatTopping);
+      addTopping.veggies.push(veggieTopping);
     })
-    console.log(newPizza.toppings);
+    console.log(addTopping.meats);
+    console.log(addTopping.veggies);
   });
 });
