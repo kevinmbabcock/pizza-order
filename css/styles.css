@@ -1,3 +1,21 @@
-#showPizza {
+#showPizza, .address, .addressShow {
   display: none;
+}
+
+.pizzas {
+  float: left;
+  margin-right: 200px;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.clickable {
+  color: blue;
+}
+
+.size {
+  color: blue;
 }

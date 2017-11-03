@@ -99,21 +99,28 @@ $(document).ready(function() {
   $("form#newPizza").submit(function(event) {
     event.preventDefault();
 
+    $(".toCustomer").hide();
+    var toCustomer = $("input:radio[name=toCustomer]:checked").val();
     var size = $("#size").val();
     var crust = $("#crust").val();
     var sauce = $("#sauce").val();
     var crustFlavor = $("#crustFlavor").val();
 
+    if (toCustomer === "delivery") {
+      $(".address").show();
+    } else {
+      $("#showAddress").append("<li>Pickup</li>");
+      $(".addressShow").show();
+    }
+
     var newPizza = new Pizza(size, crust, sauce, crustFlavor);
     var addTopping = new Topping();
     newPizza.toppings.push(addTopping);
 
-
     $(".newTopping").each(function() {
       var meatTopping = $(this).find(".meatTopping").val();
-      //console.log(meatTopping);
+
       var veggieTopping = $(this).find(".veggieTopping").val();
-      //console.log(veggieTopping);
       if (meatTopping !== "none") {
         addTopping.meats.push(meatTopping);
       }
@@ -121,11 +128,23 @@ $(document).ready(function() {
       addTopping.veggies.push(veggieTopping);
       }
     })
-    //console.log(newPizza.calcul);
     var newPizzaPrice = newPizza.calculatePrice();
-    console.log(newPizzaPrice);
 
     $("ul#pizza").append("<li><span class='pizza'>" + newPizza.size + " $" + newPizzaPrice + "<br />" + newPizza.numberOfMeats() + "<br />" + newPizza.numberOfVeggies() +  "</span></li>");
+
+    $("#address").submit(function(event) {
+      event.preventDefault();
+      $(".addressShow").show();
+      var firstName = $("#firstName").val();
+      var lastName = $("#lastName").val();
+      var street = $("#street").val();
+      var city = $("#city").val();
+      var state = $("#state").val();
+      var zip = $("#zip").val();
+
+      $("#showAddress").append("<li>" + firstName + " " + lastName + " <br />" + street + " <br />" + city + ", " + state + " <br />" + zip + "</li>");
+      $(".address").hide();
+    })
 
     $(".pizza").last().click(function() {
       $("#showPizza").show();
@@ -138,4 +157,5 @@ $(document).ready(function() {
       $(".price").text("$" + newPizza.price);
     })
   });
+
 });

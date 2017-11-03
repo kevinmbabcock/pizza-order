@@ -15,6 +15,20 @@
         <div class="col-md-6">
           <h2>Add a Pizza:</h2>
           <form id="newPizza">
+            <div class="form-group toCustomer">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="toCustomer" value="pickUp" checked>
+                  Pick Up
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="toCustomer" value="delivery">
+                  Delivery
+                </label>
+              </div>
+            </div>
             <div class="form-group">
               <p>Select Size</p>
               <select class="form-control" id="size">
@@ -80,24 +94,67 @@
             <span class="btn btn-primary" id="addTopping">More Toppings</span>
             <button type="submit" class="btn btn-success">Add Pizza</button>
           </form>
+          <div class="orderInfo">
+            <div class="pizzas">
+              <h2>Pizzas:</h2>
+              <ul id="pizza">
 
-          <h2>Pizzas:</h2>
-          <ul id="pizza">
-
-          </ul>
+              </ul>
+            </div>
+            <div class="addressShow">
+              <h2>Delivery To:</h2>
+              <ul id="showAddress">
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="col-md-6">
-          <div id="showPizza">
-            <h2>Your Pizza:</h2>
+          <div class="address">
+            <h3>Delivery Details</h3>
+            <form id="address">
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName">
+              </div>
+              <div class="form-group"><br />
+                  <label for="street">Street:</label>
+                  <input id="street" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="city">City:</label>
+                  <input id="city" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="state">State:</label>
+                  <input id="state" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="zip">Zip Code:</label>
+                  <input id="zip" class="form-control" type="text">
+                </div>
+                <button class="btn" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="showPizza">
+        <div class="row">
+          <h2>Your Pizza:</h2>
+          <div class="col-md-3">
             <p>Size: <span class="size"></span></p>
             <p>Crust: <span class="crust"></span></p>
             <p>Sauce: <span class="sauce"></span></p>
             <p>Crust Flavor: <span class="flavor"</span></p>
+          </div>
+          <div class="col-md-3">
             <p>Meat Toppings: <span class="meat"></span></p>
             <p>Veggie Toppings: <span class="veggie"></span></p>
             <p>Total Price: <span class="price"></span></p>
-
           </div>
         </div>
       </div>
