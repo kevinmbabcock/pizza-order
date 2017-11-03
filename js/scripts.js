@@ -156,8 +156,12 @@ $(document).ready(function() {
       var state = $("#state").val();
       var zip = $("#zip").val();
 
-      $("#showAddress").append("<li>" + firstName + " " + lastName + " <br />" + street + " <br />" + city + ", " + state + " <br />" + zip + "</li>");
-      $(".address").hide();
+      if (firstName && lastName && street && city && state && zip) {
+        $("#showAddress").append("<li>" + firstName + " " + lastName + " <br />" + street + " <br />" + city + ", " + state + " <br />" + zip + "</li>");
+        $(".address").hide();
+      } else {
+        $(".fail").text("Please fill out all information");
+      }
     })
 
     $(".clickable").last().click(function() {
