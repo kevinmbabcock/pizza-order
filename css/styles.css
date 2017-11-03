@@ -7,15 +7,12 @@
   margin-right: 200px;
 }
 
-.clickable:hover {
-  cursor: pointer;
-  text-decoration: underline;
+.address {
+  margin-top: 12px;
 }
 
-.clickable {
-  color: blue;
-}
-
-.size {
-  color: blue;
+.orderInfo {
+  margin-top: 20px;
+  border: 2px solid red;
+  background-color: #ff8080;
 }

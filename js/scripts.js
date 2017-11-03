@@ -106,12 +106,16 @@ $(document).ready(function() {
     var sauce = $("#sauce").val();
     var crustFlavor = $("#crustFlavor").val();
 
-    if (toCustomer === "delivery") {
-      $(".address").show();
-    } else {
-      $("#showAddress").append("<li>Pickup</li>");
-      $(".addressShow").show();
+    if(!$('#showAddress li').length) {
+      if (toCustomer === "delivery") {
+        $(".address").show();
+      } else {
+        $("#showAddress").append("<li>Pickup</li>");
+        $(".addressShow").show();
+      }
     }
+
+
 
     var newPizza = new Pizza(size, crust, sauce, crustFlavor);
     var addTopping = new Topping();
