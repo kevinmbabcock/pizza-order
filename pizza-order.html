@@ -11,9 +11,7 @@
   <body>
     <div class="container">
       <h1>Order Your Pizza!</h1>
-
       <div class="row">
-
         <div class="col-md-6">
           <h2>Add a Pizza:</h2>
           <form id="newPizza">
@@ -25,6 +23,8 @@
                 <option value="stuffed">Stuffed Crust</option>
                 <option value="thin">Thin N Crispy</option>
               </select>
+            </div>
+            <div class="form-group">
               <p>Select Sauce</p>
               <select class="form-control" id="sauce">
                 <option value="marinara">Marinara</option>
@@ -32,8 +32,10 @@
                 <option value="buffalo">Buffalo</option>
                 <option value="white">White Sauce</option>
               </select>
-              <p>Crust Flavor</p
-              <select class="form-control" id="crustFlavor">
+            </div>
+            <div class="form-group">
+              <p>Crust Flavor</p>
+              <select class="form-control" id="sauce">
                 <option value="garlic">Garlic Butter</option>
                 <option value="parmesan">Parmesan</option>
                 <option value="cheddar">Cheddar</option>
@@ -61,8 +63,8 @@
               </div>
             </div>
 
-            <span class="btn btn-primary" id="addTopping">Another Topping</span>
-            <button type="submit" class="btn">Add</button>
+
+            <button type="submit" class="btn btn-success">Add Pizza</button>
           </form>
 
           <h2>Pizzas:</h2>
