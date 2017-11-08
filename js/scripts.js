@@ -118,8 +118,6 @@ $(document).ready(function() {
       }
     }
 
-
-
     var newPizza = new Pizza(size, crust, sauce, crustFlavor);
     var addTopping = new Topping();
     newPizza.toppings.push(addTopping);
@@ -127,8 +125,8 @@ $(document).ready(function() {
 
     $(".newTopping").each(function() {
       var meatTopping = $(this).find(".meatTopping").val();
-
       var veggieTopping = $(this).find(".veggieTopping").val();
+
       if (meatTopping !== "none") {
         addTopping.meats.push(meatTopping);
       }
@@ -175,5 +173,4 @@ $(document).ready(function() {
       $(".price").text("$" + newPizza.price);
     })
   });
-
 });
